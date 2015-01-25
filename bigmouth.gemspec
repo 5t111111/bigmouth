@@ -19,5 +19,25 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 4.2.0"
 
+  s.add_dependency "slim-rails"
+
   s.add_development_dependency "sqlite3"
+
+
+
+  s.add_development_dependency "awesome_print"
+  s.add_development_dependency 'pry-rails'
+  s.add_development_dependency 'pry-doc'
+  s.add_development_dependency 'pry-stack_explorer'
+  s.add_development_dependency 'pry-byebug'
+  s.add_development_dependency 'better_errors'
+  s.add_development_dependency 'binding_of_caller'
+  s.add_development_dependency 'minitest-rails-capybara'
+  s.add_development_dependency 'minitest-reporters'
+  s.add_development_dependency 'minitest-power_assert'
+  s.add_development_dependency 'launchy'
+
+
+
+
 end
