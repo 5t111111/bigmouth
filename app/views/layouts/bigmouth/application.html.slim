@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title
+      | Bigmouth
+    = stylesheet_link_tag    "bigmouth/application", media: "all"
+    = javascript_include_tag "bigmouth/application"
+    = csrf_meta_tags
+  body
+    = yield
