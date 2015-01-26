@@ -8,22 +8,15 @@
         - @article.errors.full_messages.each do |message|
           li
             = message
-  .field
+  .form-group
     = f.label :title
-    br
-    = f.text_field :title
-  .field
+    = f.text_field :title, class: "form-control"
+  .form-group
     = f.label :text
-    br
-    = f.text_area :text, class: "tinymce", rows: 40, cols: 120
+    = f.text_area :text, class: ["tinymce", "form-control"], rows: 40, cols: 120
     = tinymce
-
-
-  .field
+  .form-group
     = f.label :author_name
-    br
-    = f.text_field :author_name
-
-
+    = f.text_field :author_name, class: "form-control"
   .actions
-    = f.submit
+    = f.submit "Submit", class: ["btn", "btn-default"]
