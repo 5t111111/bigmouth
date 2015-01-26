@@ -5,6 +5,7 @@ require "tinymce-rails"
 
 module Bigmouth
   mattr_accessor :author_class
+  mattr_accessor :username_key
 
   def self.author_class
     @@author_class.constantize
