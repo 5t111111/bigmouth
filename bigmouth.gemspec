@@ -22,6 +22,9 @@ Gem::Specification.new do |s|
   s.add_dependency "slim-rails"
   s.add_dependency "tinymce-rails"
 
+  s.add_dependency "bootstrap-sass", "~> 3.3.3"
+  s.add_dependency "sass-rails", ">= 3.2"
+
   s.add_development_dependency "sqlite3"
 
   s.add_development_dependency "awesome_print"

@@ -1,6 +1,7 @@
 require "bigmouth/engine"
 
 require "slim"
+require "bootstrap-sass"
 require "tinymce-rails"
 
 module Bigmouth
