@@ -1,4 +1,2 @@
-module Bigmouth
-  class ApplicationController < ActionController::Base
-  end
+class Bigmouth::ApplicationController < ApplicationController
 end

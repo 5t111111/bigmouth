@@ -12,14 +12,18 @@
     = f.label :title
     br
     = f.text_field :title
-  // .field
-  //   = f.label :text
-  //   br
-  //   = f.text_area :text
   .field
     = f.label :text
     br
-    = f.text_area :text, :class => "tinymce", :rows => 40, :cols => 120
+    = f.text_area :text, class: "tinymce", rows: 40, cols: 120
     = tinymce
+
+
+  .field
+    = f.label :author_name
+    br
+    = f.text_field :author_name
+
+
   .actions
     = f.submit
