@@ -2,6 +2,10 @@ require_dependency "bigmouth/application_controller"
 
 module Bigmouth
   class ArticlesController < ApplicationController
+
+    layout Bigmouth.layout
+    layout "bigmouth/default", only: [:new, :edit]
+    
     before_action :set_article, only: [:show, :edit, :update, :destroy]
 
     # GET /articles

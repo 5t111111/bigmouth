@@ -5,10 +5,17 @@ require "tinymce-rails"
 
 module Bigmouth
   mattr_accessor :author_class
+  mattr_accessor :layout
   mattr_accessor :username_key
 
-  def self.author_class
-    @@author_class.constantize
+  class << self
+    def author_class
+      @@author_class.constantize
+    end
+
+    def layout
+      @@layout || "bigmouth/default"
+    end
   end
 
   class Application < Rails::Application

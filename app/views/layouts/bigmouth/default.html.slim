@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title
+      | Bigmouth
+    = stylesheet_link_tag    "bigmouth/application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "bigmouth/application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  body
+    = yield
