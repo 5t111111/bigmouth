@@ -15,7 +15,10 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          = link_to "Bigmouth Editor", "#", class: "navbar-brand"
+          - if controller.action_name == 'new' || controller.action_name == "edit"
+            = link_to "Bigmouth Editor", "#", class: "navbar-brand"
+          - else
+            = link_to "Bigmouth", "#", class: "navbar-brand"
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
