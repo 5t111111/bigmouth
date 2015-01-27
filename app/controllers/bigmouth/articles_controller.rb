@@ -4,9 +4,10 @@ module Bigmouth
   class ArticlesController < ApplicationController
 
     layout Bigmouth.layout
-    layout "bigmouth/default", only: [:new, :edit]
-    
-    before_action :set_article, only: [:show, :edit, :update, :destroy]
+    layout "bigmouth/default", only: %i(new edit)
+
+    before_action :set_article, only: %i(show edit update destroy)
+    before_action :action_requires_login, except: %i(index show)
 
     # GET /articles
     def index
@@ -28,7 +29,11 @@ module Bigmouth
 
     # POST /articles
     def create
-      @article = Article.new(article_params)
+      # @article = Article.new(article_params)
+      p "-----------------"
+      puts current_user
+      p "-----------------"
+      @article = current_user.articles.build(article_params)
 
       if @article.save
         redirect_to @article, notice: 'Article was successfully created.'
@@ -60,7 +65,14 @@ module Bigmouth
 
       # Only allow a trusted parameter "white list" through.
       def article_params
-        params.require(:article).permit(:title, :text, :author_name)
+        # params.require(:article).permit(:title, :text, :author_name)
+        params.require(:article).permit(:title, :text)
+      end
+
+      def action_requires_login
+        if current_user.blank?
+          redirect_back_or_to root_path, alert: "You are not permitted to do this action."
+        end
       end
   end
 end
