@@ -8,8 +8,7 @@ h1
     .posted-date
       = article.created_at.strftime("%B %d, %Y")
     .article
-      = sanitize article.text
-        = article.title
+      = truncate_html sanitize(article.text), length: 200, omission: " ..."
     ul
       li
         = link_to 'Edit', edit_article_path(article)

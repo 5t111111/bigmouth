@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "slim-rails"
   s.add_dependency "tinymce-rails"
+  s.add_dependency "truncate_html"
 
   s.add_dependency "bootstrap-sass", "~> 3.3.3"
   s.add_dependency "sass-rails", ">= 3.2"

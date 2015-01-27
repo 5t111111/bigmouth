@@ -7,6 +7,7 @@ PATH
       sass-rails (>= 3.2)
       slim-rails
       tinymce-rails
+      truncate_html
 
 GEM
   remote: https://rubygems.org/
@@ -163,6 +164,7 @@ GEM
     tilt (1.4.1)
     tinymce-rails (4.1.6)
       railties (>= 3.1.1)
+    truncate_html (0.9.3)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     yard (0.8.7.6)

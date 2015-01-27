@@ -3,6 +3,7 @@ require "bigmouth/engine"
 require "slim"
 require "bootstrap-sass"
 require "tinymce-rails"
+require "truncate_html"
 
 module Bigmouth
   mattr_accessor :author_class
