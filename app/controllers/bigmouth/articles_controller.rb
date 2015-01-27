@@ -29,11 +29,8 @@ module Bigmouth
 
     # POST /articles
     def create
-      # @article = Article.new(article_params)
-      p "-----------------"
-      puts current_user
-      p "-----------------"
-      @article = current_user.articles.build(article_params)
+      @article = Article.new(article_params)
+      @article.author_id = current_user.id
 
       if @article.save
         redirect_to @article, notice: 'Article was successfully created.'
