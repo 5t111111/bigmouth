@@ -4,6 +4,7 @@ require "slim"
 require "bootstrap-sass"
 require "tinymce-rails"
 require "truncate_html"
+require "jquery-rails"
 
 module Bigmouth
   mattr_accessor :author_class
@@ -12,11 +13,15 @@ module Bigmouth
 
   class << self
     def author_class
-      @@author_class.constantize
+      @@author_class ? @@author_class.constantize : "User"
     end
 
     def layout
       @@layout || "bigmouth/default"
+    end
+
+    def username_key
+      @@username_key || "email"
     end
   end
 

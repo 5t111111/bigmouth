@@ -16,4 +16,15 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 # Load fixtures from the engine
 if ActiveSupport::TestCase.respond_to?(:fixture_path=)
   ActiveSupport::TestCase.fixture_path = File.expand_path("../fixtures", __FILE__)
+  ActiveSupport::TestCase.fixtures :all
+end
+
+class ActionController::TestCase
+  # sorcery test helpers
+  include Sorcery::TestHelpers::Rails::Controller
+end 
+
+class ActionDispatch::IntegrationTest
+  # sorcery test helpers
+  include Sorcery::TestHelpers::Rails::Integration
 end
