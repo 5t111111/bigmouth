@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = Bigmouth::VERSION
   s.authors     = ["WAKASUGI 5T111111"]
   s.email       = ["baenej@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Bigmouth."
-  s.description = "TODO: Description of Bigmouth."
+  s.homepage    = "https://github.com/5t111111"
+  s.summary     = "Bigmouth is a mountable engine for creating simple blog pages for your application."
+  s.description = "WORK IN PROGRESS: You should not use unless you are far too kind to contribute for the moment. Bigmouth is a mountable engine for creating simple blog pages for your application."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
