@@ -3,7 +3,7 @@ require_dependency "bigmouth/application_controller"
 module Bigmouth
   class ArticlesController < ApplicationController
 
-    layout Bigmouth.config.layout
+    layout "bigmouth/default"
 
     before_action :set_article, only: %i(show edit update destroy)
     before_action :action_requires_login, except: %i(index show)
@@ -11,21 +11,21 @@ module Bigmouth
     # GET /articles
     def index
       @articles = Article.all
+      render :index, layout: Bigmouth.config.layout
     end
 
     # GET /articles/1
     def show
+      render :show, layout: Bigmouth.config.layout
     end
 
     # GET /articles/new
     def new
       @article = Article.new
-      render :new, layout: "bigmouth/default"
     end
 
     # GET /articles/1/edit
     def edit
-      render :edit, layout: "bigmouth/default"
     end
 
     # POST /articles

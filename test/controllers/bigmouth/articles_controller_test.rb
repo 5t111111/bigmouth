@@ -4,8 +4,8 @@ module Bigmouth
   class ArticlesControllerTest < ActionController::TestCase
     setup do
       @routes = Bigmouth::Engine.routes
-      @article = bigmouth_articles(:one)
-      @user = users(:one)
+      @article = bigmouth_articles(:bigmouth_Strikes_again)
+      @user = users(:morrissey)
     end
 
     test "should get index" do
