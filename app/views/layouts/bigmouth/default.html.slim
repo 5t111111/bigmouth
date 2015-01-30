@@ -22,7 +22,7 @@ html
         p.navbar-text.navbar-left
           = link_to "Back to Articles", root_path, class: "navbar-link"
         p.navbar-text.navbar-right
-           = "Logged in as: #{current_user ? current_user[Bigmouth.username_key.to_sym] : 'Guest'}"
+           = "Logged in as: #{current_user ? current_user[Bigmouth.config.username_key.to_sym] : 'Guest'}"
     .container
       .flash
         - flash.each do |message_type, message|

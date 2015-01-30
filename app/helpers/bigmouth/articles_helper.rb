@@ -3,7 +3,7 @@ module Bigmouth
 
     def article_author(article)
       if article.author
-        article.author[Bigmouth.username_key.to_sym] || "Guest"
+        article.author[Bigmouth.config.username_key.to_sym] || "Guest"
       else
         "Guest"
       end

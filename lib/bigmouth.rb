@@ -6,22 +6,16 @@ require "tinymce-rails"
 require "truncate_html"
 require "jquery-rails"
 
+require "bigmouth/config"
+
 module Bigmouth
-  mattr_accessor :author_class
-  mattr_accessor :layout
-  mattr_accessor :username_key
-
   class << self
-    def author_class
-      @@author_class ? @@author_class.constantize : "User"
+    def config
+      @config ||= Config.new
     end
 
-    def layout
-      @@layout || "bigmouth/default"
-    end
-
-    def username_key
-      @@username_key || "email"
+    def configure
+      yield config if block_given?
     end
   end
 

@@ -8,15 +8,15 @@
   </head>
   <body>
     <div>
-      <%= if flash[:notice] %>
+      <% if flash[:notice] %>
         <p id="notice"><%= flash[:notice] %></p>
-      <%= end %>
-      <%= if flash[:alert] %>
+      <% end %>
+      <% if flash[:alert] %>
         <p id="alert"><%= flash[:alert] %></p>
-      <%= end %>
+      <% end %>
     </div>
     <div>
-      Current User is: <%= current_user ? current_user[Bigmouth.username_key.to_sym] : "Guest" %>
+      Current User is: <%= current_user ? current_user[Bigmouth.config.username_key.to_sym] : "Guest" %>
     </div>
     <%= yield %>
   </body>

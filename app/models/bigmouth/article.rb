@@ -1,5 +1,5 @@
 module Bigmouth
   class Article < ActiveRecord::Base
-    belongs_to :author, class_name: Bigmouth.author_class.to_s
+    belongs_to :author, class_name: Bigmouth.config.author_class
   end
 end
