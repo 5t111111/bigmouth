@@ -24,12 +24,16 @@ mount Bigmouth::Engine, at: "/blog"
 
 ## Specify User class
 
-Bigmouth needs User class for author of articles, so you should specify it in initializer.
+Bigmouth needs User class for author of articles, so at least you must specify it in initializer.
 
 `config/initializers/bigmouth.rb`
 
 ```ruby
-Bigmouth.author_class = "User"
+Bigmouth.configure do |config|
+  # Set a class for user model (default: User)
+  config.author_class = "User"
+end if defined?(Bigmouth)
+
 ```
 
 ## Set association between user and articles
@@ -45,14 +49,16 @@ has_many :articles, class_name: "Bigmouth::Article", foreign_key: "author_id"
 `config/initializers/bigmouth.rb`
 
 ```ruby
-# Set a class for user model (default: User)
-Bigmouth.author_class = "User"
-# Set a field for username (default: email)
-Bigmouth.username_key = "email"
-# Set a layout (default: bigmouth/default)
-Bigmouth.layout = "application"
-# Set summary length to truncate (default: 20 words)
-Bigmouth.summary_length = 10
+Bigmouth.configure do |config|
+  # Set a class for user model (default: User)
+  config.author_class = "User"
+  # Set a field for username (default: email)
+  config.username_key = "email"
+  # Set a layout (default: bigmouth/default)
+  config.layout = "application"
+  # Set summary length to truncate (default: 20 words)
+  config.summary_length = 10
+end if defined?(Bigmouth)
 ```
 
 ## License
