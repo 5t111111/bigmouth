@@ -1,0 +1,6 @@
+h1
+  | Editing Article
+= render 'form'
+= link_to 'Preview', admin_article_path(@article), target: ["_blank"]
+|  | 
+= link_to 'Back', admin_articles_path

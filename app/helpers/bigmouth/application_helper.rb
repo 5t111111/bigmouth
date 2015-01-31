@@ -26,9 +26,10 @@ module Bigmouth
     end
 
     def sidebar_activate(sidebar_link_url)
-      current_url = request.headers["PATH_INFO"]
-      # The below logic needs to be fix ...
-      Regexp.new(current_url) =~ sidebar_link_url ? ' class="active"' : ""
+      current_url = request.headers["SCRIPT_NAME"] + request.headers["PATH_INFO"]
+      puts current_url
+      puts sidebar_link_url
+      current_url.match(sidebar_link_url) ? ' class="active"' : ""
     end
 
     def sidebar_list_items
