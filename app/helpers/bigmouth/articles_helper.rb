@@ -8,5 +8,11 @@ module Bigmouth
         "Guest"
       end
     end
+
+    def summary(article)
+      truncate_html sanitize(article.text),
+                    length: Bigmouth.config.summary_length,
+                    omission: "..."
+    end
   end
 end

@@ -56,8 +56,10 @@ Bigmouth.configure do |config|
   config.username_key = "email"
   # Set a layout (default: bigmouth/default)
   config.layout = "application"
-  # Set summary length to truncate (default: 20 words)
-  config.summary_length = 10
+  # Set summary length to truncate (default: 200)
+  config.summary_length = 100
+  # Set date and time format
+  config.datetime_format = "%B %d, %Y at %l:%M %p"
 end if defined?(Bigmouth)
 ```
 

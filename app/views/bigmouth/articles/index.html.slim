@@ -3,10 +3,19 @@ h1
   - @articles.each do |article|
     h1.article-title
       = link_to article.title, article
-    .posted-date
-      = article.created_at.strftime("%B %d, %Y")
+    p.lead.article-author
+      | by 
+      = article_author article
+    hr
+    p.posted-date
+      span.glyphicon.glyphicon-time
+      |  Posted on 
+      = article.created_at.strftime(Bigmouth.config.datetime_format)
+    hr
     .article
-      = truncate_html sanitize(article.text), length: 200, omission: " ..."
+      = summary(article)
+    .read-more
+      = link_to "Read More >>", article
     ul
       li
         = link_to 'Edit', edit_article_path(article)
