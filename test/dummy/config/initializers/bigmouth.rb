@@ -7,4 +7,6 @@ Bigmouth.configure do |config|
   #config.layout = "application"
   # Set summary length to truncate (default: 200)
   config.summary_length = 100
+  # Set date and time format
+  config.datetime_format = "%B %d, %Y at %l:%M %p"
 end if defined?(Bigmouth)

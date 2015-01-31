@@ -14,7 +14,7 @@ module Bigmouth
     end
 
     # To provide truncate_html to test context,
-    # Need to define trucate_html which some tests depends on.
+    # need to define bridge trucate_html which some tests depends on.
     def truncate_html(html, options={})
       return '' if html.nil?
       html_string = TruncateHtml::HtmlString.new(html)
