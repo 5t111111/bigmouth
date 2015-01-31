@@ -1,25 +1,25 @@
-h1
-  | Listing Articles
+.articles
   - @articles.each do |article|
-    h1.article-title
-      = link_to article.title, article
-    p.lead.article-author
-      | by 
-      = article_author article
-    hr
-    p.posted-date
-      span.glyphicon.glyphicon-time
-      |  Posted on 
-      = article.created_at.strftime(Bigmouth.config.datetime_format)
-    hr
     .article
-      = summary(article)
-    .read-more
-      = link_to "Read More >>", article
-    ul
-      li
-        = link_to 'Edit', edit_article_path(article)
-      li
-        = link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }
-    hr
+      h1.article-title
+        = link_to article.title, article
+      p.lead.article-author
+        | by 
+        = article_author article
+      hr
+      p.posted-date
+        span.glyphicon.glyphicon-time
+        |  Posted on 
+        = article.created_at.strftime(Bigmouth.config.datetime_format)
+      hr
+      .article-body
+        = summary(article)
+      .read-more
+        = link_to "Read More >>", article
+      ul
+        li
+          = link_to 'Edit', edit_article_path(article)
+        li
+          = link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }
+      hr
 = link_to 'New Article', new_article_path

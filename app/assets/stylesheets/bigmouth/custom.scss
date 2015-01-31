@@ -1,5 +1,11 @@
 .article {
-  margin-top: 30px;
+  &:not(:first-child) {
+    margin-top: 50px;
+  }
+
+  .read-more {
+    text-align: right;
+  }
 }
 
 #error_explanation {
