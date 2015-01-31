@@ -2,7 +2,7 @@ module Bigmouth
   module ArticlesHelper
 
     def article_author(article)
-      if article.author
+      if article.author.present?
         article.author[Bigmouth.config.username_key.to_sym] || "Guest"
       else
         "Guest"

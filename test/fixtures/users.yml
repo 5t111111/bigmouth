@@ -1,4 +1,5 @@
 morrissey:
+  id: 19590522
   email: morrissey@example.com
   salt: <%= salt = "asdasdastr4325234324sdfds" %>
   crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("miserable-lie", salt) %>

@@ -1,3 +1,6 @@
+require "pry"
+require "pry-byebug"
+
 # Configure Rails Environment
 ENV["RAILS_ENV"] = "test"
 
