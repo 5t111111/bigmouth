@@ -3,4 +3,7 @@ Bigmouth::Engine.routes.draw do
 
   resources :articles
 
+  get "admin" => "admin/articles#index"
+  get "admin/articles" => "admin/articles#index"
+
 end

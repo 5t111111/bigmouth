@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    meta name="description" content=""
+    meta name="author" content=""
+    title
+      = "#{yield(:title)} | Bigmouth Admin"
+    = stylesheet_link_tag    "bigmouth/admin/dashboard", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "bigmouth/admin/dashboard", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  body
+    nav.navbar.navbar-default.navbar-fixed-top role="navigation"
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          - if controller.action_name == 'new' || controller.action_name == "edit"
+            = link_to "Bigmouth Editor", "#", class: "navbar-brand"
+          - else
+            = link_to "Bigmouth", "#", class: "navbar-brand"
+        p.navbar-text.navbar-left
+          = link_to "Back to Articles", root_path, class: "navbar-link"
+        p.navbar-text.navbar-right
+           = "Logged in as: #{current_user ? current_user[Bigmouth.config.username_key.to_sym] : 'Guest'}"
+    .container-fluid
+      .row
+        .col-sm-3.col-md-2.sidebar
+          ul.nav.nav-sidebar
+            = sidebar_list_items()
+        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+          .flash
+            - flash.each do |message_type, message|
+              .alert class="#{alert_class_for(message_type)}"
+                = message
+          = yield
