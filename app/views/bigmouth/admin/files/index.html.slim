@@ -3,14 +3,14 @@
   table.table.table-striped
     thead
       tr
-        th Name
+        th Label
         th Created at
         th colspan="2"
     tbody
       - @files.each do |file|
         tr
           td
-            = link_to file.name, admin_file_path(file)
+            = link_to file.label, admin_file_path(file)
           td
             = file.created_at.strftime(Bigmouth.config.datetime_format)
           td

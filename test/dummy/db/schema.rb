@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20150201134338) do
   end
 
   create_table "bigmouth_files", force: :cascade do |t|
-    t.string   "name"
+    t.string   "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"

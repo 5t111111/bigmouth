@@ -49,7 +49,7 @@ module Bigmouth
     private
       # Only allow a trusted parameter "white list" through.
       def file_params
-        params.require(:file).permit(:name)
+        params.require(:file).permit(:label)
       end
 
       # Use callbacks to share common setup or constraints between actions.
