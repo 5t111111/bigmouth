@@ -26,7 +26,6 @@ module Bigmouth
     end
 
     def sidebar_activate(sidebar_link_url)
-      binding.pry
       current_url = request.headers["SCRIPT_NAME"] + request.headers["PATH_INFO"]
       current_url.match(sidebar_link_url) ? ' class="active"' : ""
     end

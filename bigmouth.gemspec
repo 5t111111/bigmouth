@@ -37,10 +37,11 @@ Gem::Specification.new do |s|
   s.add_development_dependency "pry-byebug"
   s.add_development_dependency "better_errors"
   s.add_development_dependency "binding_of_caller"
-  # s.add_development_dependency "minitest-rails-capybara"
-  # s.add_development_dependency "minitest-reporters"
+  s.add_development_dependency "minitest-rails"
+  s.add_development_dependency "minitest-rails-capybara"
+  s.add_development_dependency "minitest-reporters"
   # s.add_development_dependency "minitest-power_assert"
-  # s.add_development_dependency "launchy"
+  s.add_development_dependency "launchy"
 
 
 
