@@ -1,7 +1,7 @@
 require_dependency "bigmouth/application_controller"
 
 module Bigmouth
-  class Admin::ArticlesController < ApplicationController
+  class Admin::ArticlesController < Admin::ApplicationController
 
     layout "bigmouth/admin/dashboard"
 
@@ -27,7 +27,7 @@ module Bigmouth
       @article.author_id = current_user.id
 
       if @article.save
-        redirect_to @article, notice: 'Article was successfully created.'
+        redirect_to admin_article_path(@article), notice: 'Article was successfully created.'
       else
         render :new
       end
@@ -43,7 +43,7 @@ module Bigmouth
 
     def destroy
       @article.destroy
-      redirect_to articles_url, notice: 'Article was successfully destroyed.'
+      redirect_to admin_articles_url, notice: 'Article was successfully destroyed.'
     end
 
     private
@@ -56,13 +56,6 @@ module Bigmouth
       # Use callbacks to share common setup or constraints between actions.
       def set_article
         @article = Article.find(params[:id])
-      end
-
-      def action_requires_login
-        if current_user.blank?
-          redirect_back_or_to Bigmouth.config.sign_in_uri[:uri],
-                              alert: "You are not permitted to do this action."
-        end
       end
   end
 end

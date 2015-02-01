@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129053810) do
+ActiveRecord::Schema.define(version: 20150201134338) do
 
   create_table "bigmouth_articles", force: :cascade do |t|
     t.string   "title"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 20150129053810) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "author_id"
+  end
+
+  create_table "bigmouth_files", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "uploaded_by"
   end
 
   create_table "users", force: :cascade do |t|

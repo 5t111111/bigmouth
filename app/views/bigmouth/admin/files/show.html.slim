@@ -1,0 +1,9 @@
+h1.file-name
+  = @file.name
+p.lead.file-uploaded-by
+  | by 
+  = file_uploaded_by @file
+hr
+= link_to 'Edit', edit_admin_file_path(@file)
+|  | 
+= link_to 'Back', admin_files_path

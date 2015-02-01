@@ -24,25 +24,5 @@ module Bigmouth
                     length: Bigmouth.config.summary_length,
                     omission: "..."
     end
-
-    def sidebar_activate(sidebar_link_url)
-      current_url = request.headers["SCRIPT_NAME"] + request.headers["PATH_INFO"]
-      current_url.match(sidebar_link_url) ? ' class="active"' : ""
-    end
-
-    def sidebar_list_items
-      items = [
-        { text: "Articles", path: admin_articles_path }
-      ]
-
-      html = ""
-      items.each do |item|
-        text = item[:text]
-        path = item[:path]
-        html += %(<li#{sidebar_activate(path)}><a href="#{path}">#{text}</a></li>)
-      end
-
-      html.html_safe
-    end
   end
 end

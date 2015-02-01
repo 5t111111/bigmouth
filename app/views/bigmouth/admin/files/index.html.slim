@@ -1,0 +1,22 @@
+- provide(:title, "Files (admin)")
+.table-responsive
+  table.table.table-striped
+    thead
+      tr
+        th Name
+        th Created at
+        th colspan="2"
+    tbody
+      - @files.each do |file|
+        tr
+          td
+            = link_to file.name, admin_file_path(file)
+          td
+            = file.created_at.strftime(Bigmouth.config.datetime_format)
+          td
+            = link_to "Show", admin_file_path(file)
+          td
+            = link_to "Edit", edit_admin_file_path(file), class: "btn btn-primary btn-xs"
+          td
+            = link_to "Destroy", admin_file_path(file), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs"
+= link_to 'New File', new_admin_file_path

@@ -1,0 +1,6 @@
+h1
+  | Editing File
+= render 'form'
+= link_to 'Preview', admin_file_path(@file), target: ["_blank"]
+|  | 
+= link_to 'Back', admin_files_path
