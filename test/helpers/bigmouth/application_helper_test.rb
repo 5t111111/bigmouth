@@ -5,7 +5,7 @@ module Bigmouth
     setup do
       @article = bigmouth_articles(:bigmouth_Strikes_again)
       Bigmouth.configure do |config|
-        config.author_class = "User"
+        config.user_class = "User"
         config.username_key = "email"
         config.layout = "bigmouth/default"
         config.summary_length = 100
@@ -22,18 +22,18 @@ module Bigmouth
     end
 
     test "should return article author when it has author" do
-      assert_equal "morrissey@example.com", article_author(@article)
+      assert_equal "morrissey@example.com", author(@article)
     end
 
     test "should return Guest when it doesn't have author" do
-      @article.author_id = ""
-      assert_not @article.author.present?
-      assert_equal "Guest", article_author(@article)
+      @article.user_id = ""
+      assert_not @article.user.present?
+      assert_equal "Guest", author(@article)
     end
 
     test "should return Guest when it doesn't have username_key" do
       Bigmouth.config.username_key = "non_existence"
-      assert_equal "Guest", article_author(@article)
+      assert_equal "Guest", author(@article)
     end
 
     test "should return summary based on summary_length" do

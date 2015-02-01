@@ -11,9 +11,9 @@ module Bigmouth
       }[flash_type.to_sym] || flash_type.to_s
     end
 
-    def article_author(article)
-      if article.author.present?
-        article.author[Bigmouth.config.username_key.to_sym] || "Guest"
+    def author(article)
+      if article.user.present?
+        article.user[Bigmouth.config.username_key.to_sym] || "Guest"
       else
         "Guest"
       end

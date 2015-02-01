@@ -24,7 +24,7 @@ module Bigmouth
 
     def create
       @article = Article.new(article_params)
-      @article.author_id = current_user.id
+      @article.user_id = current_user.id
 
       if @article.save
         redirect_to admin_article_path(@article), notice: 'Article was successfully created.'
@@ -49,7 +49,6 @@ module Bigmouth
     private
       # Only allow a trusted parameter "white list" through.
       def article_params
-        # params.require(:article).permit(:title, :text, :author_name)
         params.require(:article).permit(:title, :text)
       end
 

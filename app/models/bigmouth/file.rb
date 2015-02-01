@@ -1,5 +1,5 @@
 module Bigmouth
   class File < ActiveRecord::Base
-    belongs_to :uploaded_by, class_name: Bigmouth.config.author_class
+    belongs_to :user, class_name: Bigmouth.config.user_class
   end
 end

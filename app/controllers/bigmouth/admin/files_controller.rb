@@ -24,7 +24,7 @@ module Bigmouth
 
     def create
       @file = Bigmouth::File.new(file_params)
-      @file.uploaded_by = current_user.id
+      @file.user_id = current_user.id
 
       if @file.save
         redirect_to admin_file_path(@file), notice: 'File was successfully created.'
@@ -49,7 +49,6 @@ module Bigmouth
     private
       # Only allow a trusted parameter "white list" through.
       def file_params
-        # params.require(:file).permit(:title, :text, :author_name)
         params.require(:file).permit(:name)
       end
 

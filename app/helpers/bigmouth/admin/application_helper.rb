@@ -3,9 +3,9 @@ module Bigmouth
 
     include Bigmouth::ApplicationHelper
 
-    def file_uploaded_by(file)
-      if file.uploaded_by.present?
-        file.uploaded_by[Bigmouth.config.username_key.to_sym] || "Guest"
+    def uploaded_by(file)
+      if file.user.present?
+        file.user[Bigmouth.config.username_key.to_sym] || "Guest"
       else
         "Guest"
       end
