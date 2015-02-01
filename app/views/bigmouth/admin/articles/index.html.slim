@@ -4,12 +4,15 @@
     thead
       tr
         th Title
+        th Created at
         th colspan="3"
     tbody
       - @articles.each do |article|
         tr
           td
             = article.title
+          td
+            = article.created_at.strftime(Bigmouth.config.datetime_format)
           td
             = link_to "Show", article
           td
