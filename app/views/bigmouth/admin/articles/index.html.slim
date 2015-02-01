@@ -10,13 +10,13 @@
       - @articles.each do |article|
         tr
           td
-            = article.title
+            = link_to article.title, article
           td
             = article.created_at.strftime(Bigmouth.config.datetime_format)
           td
             = link_to "Show", article
           td
-            = link_to "Preview", admin_article_path(article)
+            = link_to "Preview", admin_article_path(article), target: ["_blank"]
           td
             = link_to "Edit", edit_admin_article_path(article), class: "btn btn-primary btn-xs"
           td
