@@ -1,10 +1,10 @@
 Bigmouth::Engine.routes.draw do
+  get "/admin" => "admin/articles#index"
+  resources :articles, only: %i(index show), path: "/"
   root "articles#index"
 
-  resources :articles
-
   namespace :admin do
-    root "articles#index"
     resources :articles
+    root "articles#index"
   end
 end
