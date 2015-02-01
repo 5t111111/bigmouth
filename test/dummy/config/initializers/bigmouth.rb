@@ -9,4 +9,8 @@ Bigmouth.configure do |config|
   config.summary_length = 100
   # Set date and time format
   config.datetime_format = "%B %d, %Y at %l:%M %p"
+  # Set uri and method to sign in
+  config.sign_in_uri = { uri: "/login", method: :get }
+  # Set uri and method to sign out
+  config.sign_out_uri = { uri: "/logout", method: :post }
 end if defined?(Bigmouth)

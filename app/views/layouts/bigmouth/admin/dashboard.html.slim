@@ -15,16 +15,34 @@ html
     nav.navbar.navbar-default.navbar-fixed-top role="navigation"
       .container-fluid
         .navbar-header
-          button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
+          button.navbar-toggle.collapsed type="button" aria-controls="navbar" data-target="#navbar-fuck" data-toggle="collapse"
             span.sr-only Toggle navigation
             span.icon-bar
             span.icon-bar
             span.icon-bar
           = link_to "Bigmouth Admin", admin_root_path, class: "navbar-brand"
-        p.navbar-text.navbar-left
-          = link_to "Back to Articles", admin_root_path, class: "navbar-link"
-        p.navbar-text.navbar-right
-           = "Logged in as: #{current_user ? current_user[Bigmouth.config.username_key.to_sym] : 'Guest'}"
+        #navbar-fuck.navbar-collapse.collapse
+          ul#navbar-list-menu.nav.navbar-nav
+            = sidebar_list_items()
+          ul.nav.navbar-nav.navbar-right
+            li.dropdown
+              a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-expanded="false"
+                = current_user ? current_user[Bigmouth.config.username_key.to_sym] : "Guest"
+                span.caret
+              ul.dropdown-menu role="menu"
+                li
+                  a href="#"
+                    | Action
+                li
+                  a href="#"
+                    | Another Action
+                li
+                  a href="#"
+                    | Something else here
+                li.divider
+                li
+                  a href="#"
+                  = link_to "Sign out", Bigmouth.config.sign_out_uri[:uri], method: Bigmouth.config.sign_out_uri[:method]
     .container-fluid
       .row
         .col-sm-3.col-md-2.sidebar

@@ -9,6 +9,8 @@ module Bigmouth
     config_accessor :username_key
     config_accessor :summary_length
     config_accessor :datetime_format
+    config_accessor :sign_in_uri
+    config_accessor :sign_out_uri
 
     configure do |config|
       config.author_class = "User"
@@ -16,6 +18,8 @@ module Bigmouth
       config.username_key = "email"
       config.summary_length = 20
       config.datetime_format = "%B %d, %Y at %l:%M %p"
+      config.sign_in_uri = { uri: "/sign_in", method: :get }
+      config.sign_out_uri = { uri: "/sign_out", method: :post }
     end
   end
 end

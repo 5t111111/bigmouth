@@ -3,9 +3,10 @@ require_dependency "bigmouth/application_controller"
 module Bigmouth
   class Admin::ArticlesController < ApplicationController
 
-    layout "bigmouth/admin/application"
+    layout "bigmouth/admin/dashboard"
 
     before_action :set_article, only: %i(show edit update destroy)
+    before_action :action_requires_login
 
     def index
       @articles = Article.all
@@ -55,6 +56,13 @@ module Bigmouth
       # Use callbacks to share common setup or constraints between actions.
       def set_article
         @article = Article.find(params[:id])
+      end
+
+      def action_requires_login
+        if current_user.blank?
+          redirect_back_or_to Bigmouth.config.sign_in_uri[:uri],
+                              alert: "You are not permitted to do this action."
+        end
       end
   end
 end
