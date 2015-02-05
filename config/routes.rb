@@ -5,7 +5,7 @@ Bigmouth::Engine.routes.draw do
 
   namespace :admin do
     resources :articles
-    resources :files
+    resources :images
     root "articles#index"
   end
 end

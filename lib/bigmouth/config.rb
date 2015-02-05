@@ -1,5 +1,3 @@
-require "active_support/configurable"
-
 module Bigmouth
   class Config
     include ActiveSupport::Configurable

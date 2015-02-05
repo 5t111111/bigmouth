@@ -4,6 +4,10 @@ feature "Admin::AdminArea" do
   scenario "redirect to sign in page without logging in" do
     visit "/blog/admin"
     page.must_have_content "Login"
+    visit "/blog/admin/articles"
+    page.must_have_content "Login"
+    visit "/blog/admin/images"
+    page.must_have_content "Login"
   end
 
   scenario "display admin page when logging in" do

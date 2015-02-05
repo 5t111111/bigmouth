@@ -1,0 +1,17 @@
+h1.image-label
+  = @image.label
+p.lead.image-uploaded-by
+  | by 
+  = uploaded_by @image
+hr
+h3
+  | Image URL
+p
+  = attachment_url(@image, :image_file, filename: @image.label)
+p
+  // = image_tag attachment_url(@image, :image_file, :fill, 600, 600)
+  = image_tag attachment_url(@image, :image_file)
+hr
+= link_to 'Edit', edit_admin_image_path(@image)
+|  | 
+= link_to 'Back', admin_images_path

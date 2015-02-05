@@ -1,0 +1,25 @@
+- provide(:title, "Images (admin)")
+.table-responsive
+  table.table.table-striped
+    thead
+      tr
+        th Image
+        th Label
+        th Created at
+        th colspan="2"
+    tbody
+      - @images.each do |image|
+        tr
+          td
+            = image_tag attachment_url(image, :image_file, :fill, 50, 50)
+          td
+            = link_to image.label, admin_image_path(image)
+          td
+            = image.created_at.strftime(Bigmouth.config.datetime_format)
+          td
+            = link_to "Show", admin_image_path(image)
+          td
+            = link_to "Edit", edit_admin_image_path(image), class: "btn btn-primary btn-xs"
+          td
+            = link_to "Destroy", admin_image_path(image), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs"
+= link_to 'New Image', new_admin_image_path, class: "btn btn-default"

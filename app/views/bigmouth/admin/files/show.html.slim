@@ -1,9 +1,0 @@
-h1.file-label
-  = @file.label
-p.lead.file-uploaded-by
-  | by 
-  = uploaded_by @file
-hr
-= link_to 'Edit', edit_admin_file_path(@file)
-|  | 
-= link_to 'Back', admin_files_path

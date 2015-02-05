@@ -3,9 +3,9 @@ module Bigmouth
 
     include Bigmouth::ApplicationHelper
 
-    def uploaded_by(file)
-      if file.user.present?
-        file.user[Bigmouth.config.username_key.to_sym] || "Guest"
+    def uploaded_by(image)
+      if image.user.present?
+        image.user[Bigmouth.config.username_key.to_sym] || "Guest"
       else
         "Guest"
       end
@@ -19,7 +19,7 @@ module Bigmouth
     def sidebar_list_items
       items = [
         { text: "Articles", path: admin_articles_path },
-        { text: "Files", path: admin_files_path }
+        { text: "Images", path: admin_images_path }
       ]
 
       html = ""
