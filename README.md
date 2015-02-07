@@ -75,6 +75,14 @@ Bigmouth.configure do |config|
 end if defined?(Bigmouth)
 ```
 
+## FAQ
+
+### If you want to share a layout between the main app and Bigmouth
+
+1. Set `config.layout` in a initializer (see above)
+2. Rename named routes in your layout to the prefixed with `main_app` ones such as `main_app.root_path`
+3. If you want to use named route within Bigmouth in your layout, prefix `bigmouth` like `bigmouth.root_path`
+
 ## License
 
 This project rocks and uses MIT-LICENSE.
