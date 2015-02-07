@@ -17,3 +17,13 @@ bigmouth_Strikes_again:
     And her Walkman started to melt
     MyText
   user: morrissey
+
+i_know_its_over:
+  title: I Know It's Over
+  text: |
+    Oh Mother, I can feel the soil falling over my head
+    And as I climb into an empty bed
+    Oh well. Enough said.
+    I know it's over - still I cling
+    I don't know where else I can go
+  user: morrissey

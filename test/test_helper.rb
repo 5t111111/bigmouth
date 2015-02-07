@@ -9,6 +9,7 @@ require 'rails/test_help'
 require 'minitest/rails'
 require 'minitest/rails/capybara'
 require 'minitest/reporters'
+require 'capybara/poltergeist'
 
 ActiveRecord::Migrator.migrations_paths = [File.expand_path("../../test/dummy/db/migrate", __FILE__)]
 ActiveRecord::Migrator.migrations_paths << File.expand_path('../../db/migrate', __FILE__)
@@ -45,3 +46,5 @@ class ActionDispatch::IntegrationTest
   # sorcery test helpers
   include Sorcery::TestHelpers::Rails::Integration
 end
+
+Capybara.javascript_driver = :poltergeist

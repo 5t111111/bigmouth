@@ -45,6 +45,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "minitest-reporters"
   # s.add_development_dependency "minitest-power_assert"
   s.add_development_dependency "launchy"
+  s.add_development_dependency "poltergeist"
+
 
 
 

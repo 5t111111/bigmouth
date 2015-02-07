@@ -11,6 +11,7 @@ feature "Admin::AdminArea" do
   before do
     @article = bigmouth_articles(:bigmouth_Strikes_again)
     @user = users(:morrissey)
+    @image = bigmouth_images(:the_queen_is_dead)
   end
 
   scenario "redirect to sign in page without logging in" do
@@ -75,13 +76,38 @@ Because I haven't got one
 Anymore
 EOS
     click_button "Submit"
-    page.must_have_content("by #{@user[Bigmouth.config.username_key.to_sym]}")
+    page.must_have_content("There Is A Light That Never Goes Out")
   end
 
-  scenario "correctly destroy article" do
+  scenario "display images page when logging in" do
     sign_in
-    visit "/blog/admin/articles/#{@article.id}"
+    visit "/blog/admin/images"
+    page.must_have_content "Images"
+  end
+
+  scenario "correctly display image page" do
+    sign_in
+    visit "/blog/admin/images/#{@image.id}"
+    page.must_have_content "Image URL"
+  end
+
+  scenario "correctly create new image" do
+    sign_in
+    visit "/blog/admin/images/new"
+    page.must_have_content "New Image"
+    fill_in "image_label", with: "Strangeways, Here We Come"
+    attach_file "image_image_file", "#{Bigmouth::Engine.root}/test/features/bigmouth/admin/strangeways_here_we_come.jpg"
     click_button "Submit"
-    page.must_have_content("by #{@user[Bigmouth.config.username_key.to_sym]}")
+    page.must_have_content "Image URL"
+  end
+
+  scenario "correctly edit image" do
+    sign_in
+    visit "/blog/admin/images/#{@image.id}/edit"
+    page.must_have_content "Editing Image"
+    fill_in "image_label", with: "Meat Is Murder"
+    attach_file "image_image_file", "#{Bigmouth::Engine.root}/test/features/bigmouth/admin/meat_is_murder.jpg"
+    click_button "Submit"
+    page.must_have_content "Image URL"
   end
 end

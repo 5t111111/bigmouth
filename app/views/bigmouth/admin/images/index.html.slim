@@ -21,5 +21,8 @@
           td
             = link_to "Edit", edit_admin_image_path(image), class: "btn btn-primary btn-xs"
           td
-            = link_to "Destroy", admin_image_path(image), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs"
+            = link_to "Destroy", admin_image_path(image), method: :delete, data: { confirm: "Are you absolutely sure you want to delete <strong>#{image.label}</strong>?",
+                                                                                       "verify" => image.label,
+                                                                                       "verify-text" => " This action cannot be undone. Please type in the name of the image to confirm.",
+                                                                                       }, label: "Verify the deletion", class: "btn btn-danger btn-xs"
 = link_to 'New Image', new_admin_image_path, class: "btn btn-default"

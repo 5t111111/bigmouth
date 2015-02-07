@@ -1,7 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  label: MyString
+the_queen_is_dead:
+  label: The Queen Is Dead
+  user: morrissey
 
-two:
-  label: MyString
+meat_is_myrder:
+  label: Meat Is Murder
+  user: morrissey
+
