@@ -45,6 +45,13 @@ has_many :articles, class_name: "Bigmouth::Article", foreign_key: "user_id"
 has_many :images, class_name: "Bigmouth::Image", foreign_key: "user_id"
 ```
 
+## Install migrations
+
+```console
+$ bundle exec rake bigmouth:install:migrations
+```
+
+
 ## Configuration
 
 `config/initializers/bigmouth.rb`

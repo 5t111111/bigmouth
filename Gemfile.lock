@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bigmouth (0.0.1)
+    bigmouth (0.0.2)
       bootstrap-sass (~> 3.3.3)
       jquery-rails (>= 4.0.3)
       mini_magick
